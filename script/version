@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function version {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local ver_aws_ssm_agent="0.0.1"
+  jq -n --arg aws_ssm_agent "$ver_aws_ssm_agent" '{aws_ssm_agent: $aws_ssm_agent}'
+}
+
+version "$@"
